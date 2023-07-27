@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 import Navbar from "@/components/navbar/Navbar";
 import { cn } from "@/lib/utils";
 import ReduxProvider from "@/components/providers/ReduxProvider";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 const clash = localFont({
@@ -61,11 +62,13 @@ export default function RootLayout({
         )}
       >
         <ReduxProvider>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <ThemeProvider attribute="class" defaultTheme="dark">
             <Navbar />
             {children}
           </ThemeProvider>
         </ReduxProvider>
+
+        <Analytics />
       </body>
     </html>
   );

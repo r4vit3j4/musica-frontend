@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getTrack } from "./services";
+import { getTrack, postTrack } from "./services";
 import { IPlayerState } from "@/redux/types/states";
 import { RootState } from "@/redux/store/store";
 
@@ -7,7 +7,6 @@ const initialState: IPlayerState = {
   isPlaying: false,
   isMuted: false,
   track: null,
-  artworkUrl: "/assets/backgrounds/bg.webp",
   status: {
     isLoading: false,
     isError: false,
@@ -42,19 +41,28 @@ export const playerSlice = createSlice({
       })
       .addCase(getTrack.fulfilled, (state, action) => {
         state.track = action.payload;
-        state.status.isLoading = false;
         state.status.isError = false;
         state.status.error = null;
-        if (action.payload.playSong) {
+        if (state.track.trackUrl && action.payload.playSong) {
           state.isPlaying = true;
         } else {
           state.isPlaying = false;
         }
+        state.status.isLoading = false;
       })
       .addCase(getTrack.rejected, (state, action) => {
         state.status.isLoading = false;
         state.status.isError = true;
         state.status.error = "Something went wrong, please try again";
+      })
+      .addCase(postTrack.pending, (state) => {
+        state.status.isLoading = true;
+      })
+      .addCase(postTrack.fulfilled, (state) => {
+        state.status.isLoading = false;
+      })
+      .addCase(postTrack.rejected, (state) => {
+        state.status.isLoading = false;
       });
   },
 });

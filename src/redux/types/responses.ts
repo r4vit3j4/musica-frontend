@@ -3,5 +3,12 @@ export interface IGetTrackResponse {
   trackUrl: string;
   trackName: string;
   artist: string;
+  artworkUrl: string;
   playSong: boolean;
+}
+
+export interface IPostTrackResponse {
+  trackName: string;
+  track: File;
+  artist: string;
 }

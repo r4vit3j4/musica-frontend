@@ -34,7 +34,7 @@ const Info = () => {
                   An open-source{" "}
                   <a
                     className="underline underline-offset-2 font-semibold hover:text-foreground"
-                    href="https://github.com/r4vit3j4/Musica"
+                    href="https://github.com/r4vit3j4/musica-frontend"
                     target="_blank"
                   >
                     project

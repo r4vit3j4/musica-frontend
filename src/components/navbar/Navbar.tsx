@@ -1,10 +1,7 @@
 "use client";
 import Link from "next/link";
-import { Button, buttonVariants } from "../ui/button";
-import { BoltIcon, PlusIcon } from "@heroicons/react/20/solid";
-
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import Info from "./Info";
+import AddTrackDialog from "../add-dialog/AddTrackDialog";
 
 const Navbar = () => {
   return (
@@ -22,16 +19,7 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center gap-4">
-          <Link
-            aria-label="add-track-page"
-            href="/add"
-            className={buttonVariants({
-              size: "icon",
-              variant: "secondary",
-            })}
-          >
-            <PlusIcon className="h-6 w-6" />
-          </Link>
+          <AddTrackDialog />
           <div className="hidden md:flex">
             <Info />
           </div>

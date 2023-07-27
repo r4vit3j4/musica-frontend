@@ -1,12 +1,12 @@
 export interface IPlayerState {
   isPlaying: boolean;
   isMuted: boolean;
-  artworkUrl: string;
   track: {
     id: number;
     trackUrl: string;
     trackName: string;
     artist: string;
+    artworkUrl: string;
   } | null;
   status: {
     isLoading: boolean;

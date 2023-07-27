@@ -1,6 +1,8 @@
 "use client";
 import { ChangeEvent, useState } from "react";
 import axios from "axios";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const AddTrack = () => {
   const [file, setFile] = useState<File>();
@@ -28,18 +30,18 @@ const AddTrack = () => {
   };
 
   return (
-    <div className="container p-4 border-x min-h-[100svh] py-20 flex">
+    <div className="container p-4 py-20 flex">
       <div className="flex flex-1 justify-center items-center gap-4">
-        <p className="text-4xl font-extrabold tracking-tight lg:text-5xl">
+        {/* <p className="text-4xl font-extrabold tracking-tight lg:text-5xl">
           Coming Soon...
-        </p>
-        {/* <Input
+        </p> */}
+        <Input
           name="track"
           type="file"
           className="hover:cursor-pointer file:hover:cursor-pointer max-w-xs"
           onChange={handleChange}
         />
-        <Button onClick={handleUpload}>Upload files</Button> */}
+        <Button onClick={handleUpload}>Upload files</Button>
       </div>
     </div>
   );
